@@ -56,7 +56,7 @@ if (
 		$path = realpath($_SERVER['SCRIPT_FILENAME']);
 
 		if(substr($path, 0, strlen(BASE_PATH)) == BASE_PATH) {
-			$urlSegmentToRemove = substr($path, strlen(BASE_PATH));
+			$urlSegmentToRemove = str_replace('\\', '/', str_replace('\\\\', '\\', substr($path, strlen(BASE_PATH))));
 
 			if(substr($_SERVER['SCRIPT_NAME'], -strlen($urlSegmentToRemove)) == $urlSegmentToRemove) {
 				$baseURL = substr($_SERVER['SCRIPT_NAME'], 0, -strlen($urlSegmentToRemove));
