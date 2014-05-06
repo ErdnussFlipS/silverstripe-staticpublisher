@@ -81,7 +81,7 @@ class RebuildStaticCacheTask extends BuildTask {
 
 		$mappedUrls = $page->urlsToPaths($urls);
 
-		if($removeAll && !isset($_GET['urls']) && $start == 0 && file_exists("../cache")) {
+		if($removeAll && !isset($_GET['urls']) && $start == 0 && file_exists($page->getDestDir())) {
 			echo "Removing stale cache files... \n";
 			flush();
 
